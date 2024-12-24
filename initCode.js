@@ -1,3 +1,4 @@
+//Basic Settings
 Bangle.setOptions
 ({
   wakeOnBTN1: true,
@@ -10,6 +11,9 @@ Bangle.setOptions
   hrmPollInterval: 40,
 });
 
+E.setTimeZone(-5);
+
+//Custom Font
 Graphics.prototype.setFontNexaHeavy = function() {
   // Actual height 30 (29 - 0)
   // 1 BPP
@@ -21,13 +25,17 @@ Graphics.prototype.setFontNexaHeavy = function() {
   );
 };
 
-
-
-E.setTimeZone(-5);
+//Images
+stepsIcon = atob("FBSBADgAB8AA/gDP4D7/B//wf/8P//j/f4/3+f8/H/PB/gGP4Ph8H4AA+fAPn4Ah8AAfAADg");
+heartIcon = atob("DgyBAAAA88P/H/5/+P/D/wf4D8AeADAAAA==");
+calIcon = atob("EhSBAADAAHAAPAAfIA/cB/+B/+D//D//H//n//n//n//n8/j7fDzPD3vB3uAzMAIQA==");
+notifIcon = atob("FBSBAABgAYYYEGCDH4wj/EZ/5k//JP/yT/8g//AP/wD/8A//Af/4H/+D//w//8H5+AGYAA8A");
 
 function mainWindow() 
 {
-
+  g.clear();
+  g.setColor(0,0,0);
+  
   let d = new Date();
   let h = d.getHours();
   let m = d.getMinutes();
@@ -66,8 +74,6 @@ function mainWindow()
       dayWeek = "Sat";
   }
 
-  stepsIcon = require("heatshrink").decompress(atob("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"));
-
 
   let am = h < 12;
   h = h % 12;
@@ -89,35 +95,68 @@ function mainWindow()
   g.drawString(battery + "%", 4, 12);
 
   
-  g.drawImage(stepsIcon, 176/2, 150);
-
-
+  g.drawImage(stepsIcon, 155, 78, {scale: 0.8});
+  g.drawImage(heartIcon, 176/2-10, 160);
+  g.drawImage(calIcon, 5, 78, {scale: 0.9});
+  g.drawImage(notifIcon, 176/2-9, 5, {scale: 0.9});
 }
 
 function topWindow()
 {
   g.clear();
+  g.setFontAlign(0,0,0);
 }
 
 function bottomWindow()
 {
   g.clear();
+  g.setFontAlign(0,0,0);
+  g.drawString("bottomWindow", 176/2, 176/2);
 }
 
 function leftWindow()
 {
   g.clear();
+  g.setFontAlign(0,0,0);
+  g.drawString("leftWindow", 176/2, 176/2);
 }
 
 function rightWindow()
 {
   g.clear();
+  
+  var trackedSteps = 1426;
+  var stepsProgress = trackedSteps / 10000;
+
+  g.setFont("12x20");
+  g.setFontAlign(0,0,0);
+  g.drawString(trackedSteps, 176/2, 176/2);
+
+  function drawSlice(start, end) {
+    var angle, steps = 24;
+    var x = 176/2, y = 176/2, innerRadius = 60, outerRadius = 80;
+    var polyCoords = [];
+    for (var cStep = start*steps; cStep < end*steps; cStep++) {
+      angle = cStep*Math.PI*2/steps;
+      polyCoords.push(x + outerRadius*Math.cos(angle), y + outerRadius*Math.sin(angle));
+      polyCoords.unshift(x + innerRadius*Math.cos(angle), y + innerRadius*Math.sin(angle));
+    }
+
+    angle = end*Math.PI*2;
+    polyCoords.push(x + outerRadius*Math.cos(angle), y + outerRadius*Math.sin(angle));
+    polyCoords.unshift(x + innerRadius*Math.cos(angle), y + innerRadius*Math.sin(angle));
+    g.fillPoly(polyCoords);
+  }
+
+  g.setColor(0,1,0);
+  drawSlice(0.25, stepsProgress + 0.25);
+  g.setColor(1,0,0);
+  drawSlice(stepsProgress + 0.25, 1.25);
 }
 
 let windowFunction = mainWindow;
 
-
-function changeWindow()
+function changeWindow(win)
 {
   if(win == windowFunction) return;
   windowFunction = win;
