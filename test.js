@@ -55,28 +55,3 @@ g.setColor(0,1,0);
 drawSlice(0.25, stepsProgress + 0.25);
 g.setColor(1,0,0);
 drawSlice(stepsProgress + 0.25, 1.25);
-
-// var n=0;
-// function drawSlice(from,to) {
-//   var a, res = 24;
-//   var x = 176/2, y = 176/2, r1 = 60, r2 = 85;
-//   var poly = [];
-//   for (var i=from*res;i<to*res;i++) {
-//     a = i*Math.PI*2/res;
-//     poly.push(x+r2*Math.sin(a), y+r2*Math.cos(a));
-//     poly.unshift(x+r1*Math.sin(a), y+r1*Math.cos(a));
-//   }
-//   a = to*Math.PI*2;
-//   poly.push(x+r2*Math.sin(a), y+r2*Math.cos(a));
-//   poly.unshift(x+r1*Math.sin(a), y+r1*Math.cos(a));
-//   g.fillPoly(poly);
-// }
-// function draw() {
-//   n += 0.01;
-//   if (n>=1) n=0;
-//   g.setColor(1,0,0);
-//   drawSlice(n,1);
-//   g.setColor(0,1,0);
-//   drawSlice(0,n);
-// }
-// setInterval(draw, 100);
