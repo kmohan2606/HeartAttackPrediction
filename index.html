@@ -1,26 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bangle.js Interaction</title>
-</head>
-<body>
-    <button id="bangleButton">Press Me</button>
-    <p id="displayText"></p>
-
-    <script>
-        // WebSocket setup
-        const socket = new WebSocket('ws://localhost:8080');
-
-        socket.onmessage = function(event) {
-            document.getElementById('displayText').textContent = event.data;
-        };
-
-        document.getElementById('bangleButton').addEventListener('click', function()
-        // Send data to server
-        {
-            socket.send('buttonPressed');
-        });
-    </script>
-</body>
+<html>
+ <head>
+ </head>
+ <body>
+  <script src="https://www.puck-js.com/puck.js"></script>
+  <button onclick="Puck.write('LED1.set();\n');">LED On!</button>
+  <button onclick="Puck.write('LED1.reset();\n');">LED Off!</button>
+ </body>
 </html>
