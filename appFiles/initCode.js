@@ -123,6 +123,17 @@ function leftWindow()
 
 function rightWindow()
 {
+
+  //remember 2pi is a full circle in radians
+  //so the angle for each slice is the step we are on times 2pi divided by the total number of steps
+  //i.e. angle = (step*2pi)/steps, where step is the current step, and steps is the total number of steps
+
+  // let angle = (Math.PI*2)/steps;
+
+  //for the coordinates of the circle, we use polar coordinates rather than cartesian coordinates.
+  //we use Math.sin and Math.cos to calculate the x and y values, respectively, for each point in the circle,
+  //xInner = x + r1*Math.sin(angle), yInner = y + r1*Math.cos(angle)
+  //xOuter = x + r2*Math.sin(angle), yOuter = y + r2*Math.cos(angle)
   g.clear();
   
   var trackedSteps = 1426;
