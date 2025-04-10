@@ -7,12 +7,12 @@ Bangle.setOptions
   lockTimeout: 10000,
   lcdPowerTimeout: 0,
   backlightTimeout: 10000,
-  hrmPollInterval: 40,
+  hrmPollInterval: 100000,
 });
 
 g.clear();
 var lastTime = 0;
-// var gatt;
+var gatt;
 //notes for later add button that scans for iphone on button press
 var Layout = require("Layout");
 

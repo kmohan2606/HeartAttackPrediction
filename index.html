@@ -4,18 +4,27 @@
  </head>
  <body>
   <script src="https://www.puck-js.com/puck.js"></script>
+  <button onclick="Puck.write('Bangle.buzz()')" id="initButton">Connect and buzz</button>
+  <button onclick="connectDevice()" id="connButton">Connect Device</button>
   <script>
+    var connVal = document.getElementById("connButton");
+    var counter = 0;
+    // function testUpdate()
+    // {
+    //     // console.log(counter);
+    //     console.log(connVal.textContent);
+    //     connVal.textContent = counter;
+    //     counter++;
+    // }
     function connectDevice()
     {
         var gatt;
         Puck.write(`
             NRF.requestDevice({timeout: 300, filters: [{services: "7905F431-B5CE-4E99-A40F-4B1E122D00D0"}] })
-            .then(device => {device.gatt.connect(); changeVal(layout.request("connected"));}))
-
+            .then(device => {device.gatt.connect(); changeVal(layout.request("connected"));})
+            .catch(${connVal.textContent = "not connected"}))
         \n`)
-
     }
   </script>
-  <button onclick="connectDevice()">Make Buzz</button>
  </body>
 </html>
