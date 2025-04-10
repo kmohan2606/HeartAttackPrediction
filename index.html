@@ -8,11 +8,11 @@
     function connectDevice()
     {
         var gatt;
-        Puck.write('
-            NRF.requestDevice({timeout: 300, filters: [{services: "7905F431\-B5CE\-4E99\-A40F\-4B1E122D00D0"}] })
-            .then()
+        Puck.write(`
+            NRF.requestDevice({timeout: 300, filters: [{services: "7905F431-B5CE-4E99-A40F-4B1E122D00D0"}] })
+            .then(device => {device.gatt.connect(); changeVal(layout.request("connected"));}))
 
-        \n')
+        \n`)
 
     }
   </script>
