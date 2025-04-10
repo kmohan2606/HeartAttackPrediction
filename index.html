@@ -4,18 +4,6 @@
  </head>
  <body>
   <script src="https://www.puck-js.com/puck.js"></script>
-  <script>
-    function connectDevice()
-    {
-        var gatt;
-        Puck.write('
-            NRF.requestDevice({timeout: 300, filters: [{services: "7905F431\-B5CE\-4E99\-A40F\-4B1E122D00D0"}] })
-            .then()
-
-        \n')
-
-    }
-  </script>
-  <button onclick="connectDevice()">Make Buzz</button>
+  <button onclick="Puck.write('Bangle.buzz()\n')">Make Buzz</button>
  </body>
 </html>

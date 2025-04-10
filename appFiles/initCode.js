@@ -178,7 +178,7 @@ function main()
 {
   windowFunction();
 }
-// test
+
 Bangle.on("swipe", function(lr, ud)
 {
   if(windowFunction == mainWindow && ud == 1)
